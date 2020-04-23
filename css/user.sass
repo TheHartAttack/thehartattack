@@ -1,0 +1,557 @@
+div#user-container
+	display: grid
+	grid-template-columns: repeat(6, 1fr)
+	grid-gap: 16px
+	align-content: start
+div#user-profile
+	display: flex
+	background-color: $white
+	padding: $marginLarge
+	grid-column: 1/7
+	div.user-profile-inner
+		flex: 1
+		display: flex
+		flex-direction: column
+		justify-content: center
+		align-items: center
+	div#user-profile-left
+		div.user-own-page
+			cursor: pointer
+		div#user-image-container
+			width: 256px
+			height: 256px
+			clip-path: $hex
+			background-color: $red
+			display: flex
+			align-items: center
+			justify-content: center
+			position: relative
+			img
+				width: 252px
+				height: 252px
+				object-fit: cover
+				clip-path: $hex
+				background-color: $white
+			form#user-image-upload-form
+				cursor: pointer
+				position: absolute
+				width: 256px
+				height: 256px
+				input
+					visibility: hidden
+					width: 0
+					height: 0
+			div#user-image-upload-button
+				position: absolute
+				top: 50%
+				left: 50%
+				transform: translate(-50%, -50%)
+				height: 100%
+				width: 100%
+				border: 0
+				cursor: pointer
+				background-color: unset
+				display: flex
+				align-items: center
+				justify-content: center
+				span
+					background-color: $red
+					clip-path: $hex
+					color: $white
+					display: flex
+					justify-content: center
+					align-items: center
+					text-align: center
+					font-size: 12px
+					line-height: 15px
+					height: 64px
+					width: 64px
+					opacity: 0
+					transition: 250ms ease-in-out
+				&:hover
+					span
+						opacity: 1
+	div#user-profile-center
+		h1
+			margin-bottom: 4px
+		div#user-info
+			display: flex
+			flex-direction: column
+			span#user-reg-date
+				margin-bottom: 16px
+				font-size: 12px
+				sup
+					font-size: 10px
+				strong
+					font-size: 12px
+			div#user-info-comments-likes
+				display: flex
+				justify-content: center
+				div#user-comment-count
+					position: relative
+					height: 40px
+					width: 40px
+					margin: 0 16px
+					user-select: none
+					svg
+						width: 40px
+						height: 40px
+						fill: #20232a
+					span
+						width: 100%
+						height: calc(100% - 8px)
+						display: flex
+						justify-content: center
+						align-items: center
+						color: #f4f4ef
+						position: absolute
+						top: 0px
+						font-size: 10px
+						font-weight: bold
+				div#user-like-count
+					position: relative
+					height: 40px
+					width: 40px
+					margin: 0 16px
+					user-select: none
+					svg
+						width: 40px
+						height: 40px
+						fill: #20232a
+					span
+						width: 100%
+						height: calc(100% - 8px)
+						display: flex
+						justify-content: center
+						align-items: center
+						color: #f4f4ef
+						position: absolute
+						top: 0px
+						font-size: 10px
+						font-weight: bold
+		a#user-private-message
+			display: flex
+			justify-content: center
+			align-items: center
+			width: 40px
+			height: 40px
+			background: $black
+			clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%)
+			color: $white
+			text-decoration: none
+			font-size: 24px
+			transition: all 250ms ease-in-out
+			&:hover
+				background: $red
+	div#user-profile-right
+		position: relative
+		form#user-bio-form
+			display: none
+			width: 100%
+			height: 100%
+			border: 1px solid $red
+			outline: none
+			box-sizing: border-box
+			textarea
+				resize: none
+				height: 100%
+				min-height: 160px
+				width: 100%
+				padding: 8px 16px
+				margin: 0
+				border: none
+				outline: none
+				font-size: 14px
+				line-height: 21px
+				box-sizing: border-box
+			button
+				position: absolute
+				bottom: 4px
+				width: 24px
+				height: 24px
+				text-align: center
+				display: flex
+				align-items: center
+				justify-content: center
+				border: none
+				cursor: pointer
+				background: $black
+				clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%)
+				color: $white
+				transition: all 250ms ease-in-out
+				&#user-bio-save
+					right: 4px
+				&#user-bio-cancel
+					right: 32px
+				&:hover
+					background: $red
+		div#user-bio
+			height: 100%
+			width: 100%
+			padding: 8px 16px
+			box-sizing: border-box
+			display: flex
+			align-items: center
+			border: 1px solid transparent
+			div#user-bio-text
+				font-size: 14px
+				line-height: 21px
+				em
+					font-size: 14px
+					line-height: 21px
+		div#user-bio.user-own-page
+			cursor: pointer
+			transition: border 250ms ease-in-out
+			button#user-bio-edit
+				width: 24px
+				height: 24px
+				text-align: center
+				cursor: pointer
+				background: $black
+				clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%)
+				color: $white
+				border: none
+				position: absolute
+				top: 4px
+				right: 4px
+				transition: all 250ms ease-in-out
+			&:hover
+				border: 1px solid $red
+				button#user-bio-edit
+					background: $red
+
+div#user-actions
+	grid-column: 1/7
+	display: grid
+	grid-template-columns: repeat(3, 1fr)
+	grid-gap: 16px
+	a
+		text-decoration: none
+		font-size: 12px
+		font-weight: bold
+		transition: color 250ms ease-in-out
+		text-align: center
+		background-color: $black
+		height: 32px
+		display: flex
+		align-items: center
+		justify-content: center
+		color: $white
+		&:hover
+			color: $red
+			
+div.user-sections
+	background-color: $white
+	text-align: center
+	padding: 16px
+	align-self: stretch
+	h2
+		font-size: 16px
+		line-height: 24px
+		margin-bottom: 16px
+	ul
+		li.user-page-comment
+			margin-bottom: 16px
+			border-bottom: 1px solid $red
+			padding: 0 16px 24px
+			list-style: none
+			p
+				font-size: 14px
+				line-height: 21px
+				text-align: left
+			&:last-of-type
+				border-bottom: none
+				margin-bottom: 0
+			div.user-page-comment-header
+				display: flex
+				justify-content: space-between
+				align-items: center
+				height: 32px
+				margin-bottom: 8px
+				span
+					font-size: 10px
+					position: relative
+					flex: 1
+					text-align: left
+					top: 3px
+					height: 32px
+				a
+					font-size: 10px
+					line-height: 10px
+				div.user-page-comment-likes
+					display: flex
+					align-items: center
+					justify-content: flex-end
+					height: 29px
+					svg
+						height: 12px
+						width: 12px
+						position: relative
+						top: -1px
+					span
+						width: 12px
+						height: 12px
+						top: 0
+						line-height: 10px
+						flex: unset
+						text-align: center
+						margin-right: 4px
+				sup
+					font-size: 10px
+			blockquote.quoted-comment-block
+				text-align: left
+				margin-bottom: 16px
+	div.comments-posts-buttons
+		height: 32px
+		position: relative
+		button
+			position: absolute
+			background-color: $black
+			border: none
+			color: $white
+			clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%)
+			height: 32px
+			width: 32px
+			display: flex
+			align-items: center
+			justify-content: center
+			cursor: pointer
+			transition: background-color 250ms ease-in-out
+			user-select: none
+			&:hover
+				background-color: $red
+			&.load-older
+				right: 0
+			&.load-newer
+				left: 0
+div#user-comments
+	grid-column: 1/4
+	span.no-comments
+		margin-bottom: 16px
+		display: block
+		font-size: 14px
+		line-height: 21px
+	ul#comments-ul
+		display: flex
+		flex-direction: column
+		&.loading
+			padding-bottom: 96px
+		div.loader-spinner
+			align-self: center
+			margin-top: 16px
+	&[data-current-page='1']
+		#comment-buttons
+			button#load-newer-comments
+				display: none
+	&[data-last-page='1']
+		#comment-buttons
+			button#load-older-comments
+				display: none
+	&[data-current-page='1']
+		&[data-last-page='1']
+			#comment-buttons
+				display: none
+	&.loading
+		#comment-buttons
+			display: none
+div#user-liked-posts
+	grid-column: 4/7
+	span.no-liked-posts
+		margin-bottom: 16px
+		display: block
+		font-size: 14px
+		line-height: 21px
+	ul#liked-posts-ul
+		display: flex
+		flex-direction: column
+		&.loading
+			padding-bottom: 96px
+		div.loader-spinner
+			align-self: center
+			margin-top: 16px
+		li
+			list-style: none
+			a.user-profile-liked-post
+				padding-top: 50%
+				position: relative
+				margin-bottom: 16px
+				display: flex
+				justify-content: center
+				align-items: center
+				overflow: hidden
+				border: 1px solid $black
+				box-sizing: border-box
+				div
+					position: absolute
+					width: 100%
+					&.user-profile-liked-post-image
+						bottom: 50%
+						transform: translatey(50%)
+						height: 101%
+						background-size: cover
+						background-position: center
+						background-repeat: no-repeat
+						transition: 250ms ease-in-out
+					&.user-profile-liked-post-inner
+						bottom: 0
+						height: 50%
+						background-color: transparentize($black, 0.25)
+						display: flex
+						flex-direction: column
+						align-items: center
+						justify-content: center
+						transition: 250ms ease-in-out
+						h3
+							color: $white
+							font-size: 16px
+							line-height: 24px
+						span
+							color: $white
+							font-size: 12px
+							line-height: 18px
+							&.post-date
+								font-style: italic
+							&.read-post
+								margin-top: 0
+								height: 0
+								margin-top: 0
+								font-weight: bold
+								font-size: 10px
+								line-height: 15px
+								text-transform: uppercase
+								opacity: 0
+								color: $red
+								transition: all 250ms ease-in-out
+								span
+									font-size: 15px
+									line-height: 15px
+									color: $red
+				svg
+					height: 28px
+					width: 28px
+					position: absolute
+					fill: $white
+					bottom: 8px
+					transition: fill 250ms ease-in-out
+				svg.comment-icon
+					left: 8px
+				svg.like-icon
+					right: 8px
+				span.user-profile-liked-post-comments
+					position: absolute
+					bottom: 11px
+					left: 8px
+					height: 28px
+					width: 28px
+					display: flex
+					justify-content: center
+					align-items: center
+					font-size: 10px
+					font-weight: bold
+				span.user-profile-liked-post-likes
+					position: absolute
+					bottom: 10px
+					right: 8px
+					height: 28px
+					width: 28px
+					display: flex
+					justify-content: center
+					align-items: center
+					font-size: 10px
+					font-weight: bold
+				&:hover
+					div.user-profile-liked-post-image
+						width: 113.5%
+						height: 113.5%
+					div.user-profile-liked-post-inner
+						height: 100%
+						background-color: transparentize($black, 0.125)
+						span.read-post
+							opacity: 1
+							height: 15px
+							margin-top: 8px
+	&.loading
+		#liked-post-buttons
+			display: none
+	&[data-current-page='1']
+		#liked-post-buttons
+			button#load-newer-posts
+				display: none
+	&[data-last-page='1']
+		#liked-post-buttons
+			button#load-older-posts
+				display: none
+	&[data-current-page='1'] &[data-last-page='1']
+		#liked-post-buttons
+			display: none
+
+div#update-email-overlay, div#change-password-overlay
+	display: none
+	flex-direction: column
+	align-items: center
+	justify-content: center
+	height: 100vh
+	width: 100%
+	position: absolute
+	top: 0
+	left: 0
+	z-index: 666
+	background-color: transparentize($black, 0.03125)
+	button.overlay-close
+		position: absolute
+		top: 16px
+		right: 16px
+		height: 48px
+		width: 48px
+		border: 0
+		background-color: unset
+		font-size: 32px
+		color: $red
+		cursor: pointer
+	form
+		display: flex
+		flex-direction: column
+		align-items: center
+		justify-content: center
+		position: absolute
+		top: 50%
+		left: 50%
+		transform: translate(-50%, -50%)
+		h4
+			color: $white
+			margin-bottom: 16px
+		input
+			margin-bottom: 16px
+			padding: 8px
+			border: none
+			min-width: 240px
+		button
+			height: 64px
+			width: 64px
+			background-color: $white
+			clip-path: $hex
+			display: flex
+			align-items: center
+			justify-content: center
+			border: none
+			cursor: pointer
+			&:after
+				content: "Submit"
+				display: flex
+				align-items: center
+				justify-content: center
+				height: 60px
+				width: 60px
+				background-color: $red
+				clip-path: $hex
+				color: $white
+				font-size: 12px
+				font-weight: bold
+				transition: all 250ms ease-in-out
+			&:hover
+				&:after
+					background-color: $black
+		span.success-message, span.error-message
+			color: $white
+			font-size: 14px
+			line-height: 21px

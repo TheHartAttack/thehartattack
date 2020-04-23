@@ -1,0 +1,25 @@
+@media only screen and (max-width: $breakSmall)
+  header
+    div#resp-header
+      svg.tha
+        display: block
+      svg.the-hart-attack-alt-logo
+        display: none
+  div#main-container
+    div#col-left
+      div#user-actions
+        a
+          grid-column: 1/7
+      a.post
+        padding-top: 75% !important
+    div#col-right
+      div#profile
+        div#profile-image-text
+          p
+            width: calc(100% - 8px)
+  div#contact-overlay
+    justify-content: flex-start
+  div#search-overlay.search-active
+      div#search-results
+        div#search-results-inner
+          grid-template-columns: 1fr

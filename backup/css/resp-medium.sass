@@ -1,0 +1,79 @@
+@media only screen and (max-width: $breakMedium)
+  header
+    position: relative
+    svg#header-svg
+      transform: unset !important
+      #the-hart-attack-logo
+        transform: scale(0.6)
+      .header-pentagram
+        visibility: hidden
+      #header-hex-other-stuff-anchor
+        transform: translate(0, -84px)
+      #header-hex-tv-film-anchor
+        transform: translate(72px, -42px)
+      #header-hex-search
+        transform: translate(-72px, -42px)
+      #header-hex-gaming-anchor
+        transform: translate(144px, -84px)
+      #header-hex-contact
+        transform: translate(-144px, -84px)
+      #header-hex-music-anchor
+        transform: translate(216px, -42px)
+      #header-hex-user
+        transform: translate(-216px, -42px)
+      #header-hex-home-anchor
+        transform: translate(288px, -84px)
+      #header-hex-web-dev-anchor
+        transform: translate(-288px, -84px)
+  div#main-container
+    div#col-left
+      a.post
+        grid-column: 1/7 !important
+        grid-row: unset !important
+      div.single-post-container
+        padding: 16px
+        div.single-post-title-section
+          div.single-post-title-section-inner
+            a.post-cat-link
+              top: 4px
+              left: 4px
+            a.post-comments-link
+              top: 4px
+              right: 4px
+        h2.single-post-title
+          line-height: 35px
+          margin: 16px 8px
+        span.single-post-date
+          margin-bottom: 16px
+          font-style: italic
+          color: $white
+        h3.single-post-subtitle
+          margin: 0px 8px
+      div#single-post-comments
+        padding: 16px
+    div#col-right
+      & > div
+        padding: 8px
+      div#profile
+        div#profile-image-text
+          img
+            width: calc(50% - 8px)
+            max-width: 256px
+          p
+            width: 50%
+        svg#social-links
+          margin-top: 16px
+  div.search-active
+    div#search-results
+      a.search-result
+        width: calc(50% - 16px)
+  div#user-overlay
+    div#user-container
+      div#user-profile
+        flex-direction: column
+        justify-content: center
+        div#profile-image-container
+          margin: 16px
+        div.user-profile-head-right
+          margin: 16px
+          flex: unset

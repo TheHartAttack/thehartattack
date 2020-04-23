@@ -1,0 +1,99 @@
+@media only screen and (max-width: $breakLarge)
+  header
+    top: -200px
+    div#header-container
+      a.main-nav
+        $left: 264
+        $top: 242px
+        @for $i from 1 through 9 
+          &:nth-of-type(#{$i}) 
+            left: calc(50% - #{$left}px)
+            $left: $left - 66
+            @if $i % 2 == 0
+              top: $top
+      svg.the-hart-attack
+        height: 130px
+        top: 33.33%
+      svg.pentagram, svg.tha
+        height: 100px
+        &:nth-of-type(1)
+          left: calc(50% - 330px)
+        &:nth-of-type(2)
+          left: calc(50% - 198px)
+        &:nth-of-type(4)
+          left: calc(50% + 198px)
+        &:nth-of-type(5)
+          left: calc(50% + 330px)
+        &:nth-of-type(6)
+          left: calc(50% - 396px)
+        &:nth-of-type(7)
+          left: calc(50% + 396px)
+              
+  div#main-container
+    padding: 8px
+    display: flex
+    flex-direction: column
+    align-items: unset
+    div#col-left
+      grid-gap: 8px
+      div#user-container
+        grid-gap: 8px
+        div#user-actions
+          grid-gap: 8px
+        div.user-sections
+          grid-column: 1/7
+      #posts
+        grid-gap: 8px
+        a.post
+          &:nth-of-type(2n)
+            grid-column: 1/4
+            padding-top: 50%
+          &:nth-of-type(2n+1)
+            grid-column: 4/7
+            padding-top: 50%
+          &:nth-of-type(1)
+            grid-column: 1/7
+            grid-row: 1/2
+            padding-top: 40%
+        span.no-posts
+          margin: 8px
+        div.single-post-container
+          margin: 8px
+        div#single-post-comments
+          margin: 8px
+        div.archive-title
+          margin: 8px
+    div#col-right
+      padding-bottom: 0
+      & > div
+        margin: 8px 0 0
+      div#profile
+        display: flex
+        flex-direction: column
+        align-items: center
+        div#profile-image-text
+          justify-content: center
+          align-items: center
+          margin-bottom: 16px
+          &.no-margin
+            margin-bottom: 0px
+          div.glitch-container
+            margin-top: 0
+            margin-bottom: 8px
+            height: 0px
+          p
+            width: 75%
+            margin: auto
+        svg#social-links
+          max-width: 384px
+          margin-bottom: 8px
+    #crystal-shelf, #incense-burner
+      display: none
+  div.search-active
+    div#search-results
+      padding: 8px
+      div#search-results-inner
+        grid-gap: 8px
+        grid-template-columns: repeat(3, 1fr)
+  svg#xmas-footer
+    margin-top: 0

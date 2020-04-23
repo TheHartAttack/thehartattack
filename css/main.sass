@@ -1,0 +1,243 @@
+body
+	background-color: $red
+
+#main-container
+	display: grid
+	grid-template-columns: 3fr 1fr
+	grid-gap: 16px
+	padding: $marginLarge
+	max-width: 1536px
+	width: 100%
+	margin: 0 auto
+	box-sizing: border-box
+	#col-left
+		#posts
+			display: grid
+			grid-template-columns: repeat(6, 1fr)
+			grid-gap: 16px
+			align-content: start
+			span.no-posts
+				grid-column: 1/7
+				margin: 16px
+				width: 100%
+				text-align: center
+			&.loading
+				display: flex
+				align-items: center
+				justify-content: center
+				height: 128px
+				margin-bottom: -24px
+			div.loader-spinner
+				background-color: $black
+		a.post
+			position: relative
+			background-color: $white
+			text-decoration: none
+			text-align: center
+			display: flex
+			flex-direction: column
+			align-items: center
+			justify-content: flex-end
+			overflow: hidden
+			min-height: 320px
+			box-sizing: border-box
+			max-height: 75vh
+			padding-top: 100%
+			&:nth-of-type(3n+1)
+				grid-column: 1/3
+			&:nth-of-type(3n+2)
+				grid-column: 3/5
+			&:nth-of-type(3n+3)
+				grid-column: 5/7
+			&:nth-of-type(1)
+				grid-column: 1/7
+				padding-top: 40%
+			&:nth-of-type(2)
+				grid-column: 1/4
+				padding-top: 70%
+			&:nth-of-type(3)
+				grid-column: 4/7
+				padding-top: 70%
+			&:hover
+				div.post-feat-image
+					height: 112.5%
+					width: 112.5%
+				div.post-content
+					height: 100%
+					background-color: transparentize($black, 0.125)
+					span.read-more
+						margin-top: 16px
+						height: 20px
+						opacity: 1
+			div.post-feat-image
+				height: calc(100% + 2px)
+				width: calc(100% + 2px)
+				background-color: rgba(0,0,0,0)
+				background-image: url('../img/snakeeater.jpg')
+				background-size: cover
+				background-position: center
+				position: absolute
+				transition: all 250ms ease-in-out
+			div.post-content
+				position: absolute
+				bottom: 0
+				display: flex
+				flex-direction: column
+				align-items: center
+				justify-content: center
+				z-index: 2
+				box-sizing: border-box
+				padding: 24px 48px
+				height: 50%
+				width: 100%
+				background-color: transparentize($black, 0.25)
+				transition: all 250ms ease-in-out
+				overflow: hidden
+				text-align: center
+				h2.post-title
+					text-transform: capitalize
+					color: $white
+					font-size: 20px
+					line-height: 30px
+					margin-bottom: 4px
+					transition: all 250ms ease-in-out
+				span.post-date
+					color: $white
+					font-size: 12px
+					line-height: 18px
+					margin-bottom: 8px
+					font-style: italic
+				h3.post-subtitle
+					color: $white
+					font-size: 16px
+					font-weight: normal
+					line-height: 24px
+					transition: all 250ms ease-in-out
+				span.read-more
+					height: 0
+					margin-top: 0
+					font-weight: bold
+					font-size: 12px
+					line-height: 16px
+					text-transform: uppercase
+					opacity: 0
+					color: $red
+					transition: all 250ms ease-in-out
+					span
+						font-size: 16px
+						line-height: 16px
+						color: $red
+			svg.comment-icon, svg.like-icon
+				position: absolute
+				width: 32px
+				height: 32px
+				bottom: 8px
+				fill: #f4f4ef
+				z-index: 3
+			svg.comment-icon
+				left: 8px
+			svg.like-icon
+				right: 8px
+			div.post-comments-count, div.post-likes-count
+				height: 32px
+				width: 32px
+				color: $black
+				position: absolute
+				z-index: 4
+				display: flex
+				align-items: center
+				justify-content: center
+				line-height: 48px
+				font-size: 10px
+				font-weight: bold
+				transition: all 250ms ease-in-out
+				span
+					color: $white
+					font-size: 16px
+					line-height: 20px
+					transition: all 250ms ease-in-out
+			div.post-comments-count
+				left: 8px
+				bottom: 12px
+			div.post-likes-count
+				right: 8px
+				bottom: 10px
+			//&:nth-of-type(1)
+				.post-content
+					h2.post-title
+						font-size: 22px
+						line-height: 33px
+						margin-bottom: 4px
+					span.post-date
+						font-size: 14px
+						line-height: 21px
+						margin-bottom: 12px
+					h3.post-subtitle
+						font-size: 18px
+						line-height: 27px
+					span.read-more
+						font-size: 16px
+						line-height: 20px
+						span
+							font-size: 20px
+							line-height: 20px
+			//&:nth-of-type(2), &:nth-of-type(3)
+				.post-content
+					h2.post-title
+						font-size: 20px
+						line-height: 30px
+						margin-bottom: 2px
+					span.post-date
+						font-size: 12px
+						line-height: 18px
+						margin-bottom: 10px
+					h3.post-subtitle
+						font-size: 16px
+						line-height: 24px
+					span.read-more
+						font-size: 14px
+						line-height: 18px
+						span
+							font-size: 18px
+							line-height: 18px
+		div#posts-pagination
+			display: flex
+			align-items: center
+			justify-content: space-between
+			margin: 32px 0 16px
+			input
+				text-align: center
+				height: 24px
+				min-width: 48px
+				border: none
+				background-color: $white
+				font-size: 14px
+				line-height: 14px
+				font-weight: bold
+				&[type=number]
+					-moz-appearance: textfield
+					&::-webkit-inner-spin-button, &::-webkit-outer-spin-button
+						-webkit-appearance: none
+						margin: 0
+			a
+				text-decoration: none
+				height: 40px
+				width: 40px
+				background-color: $black
+				clip-path: $hex
+				border: none
+				cursor: pointer
+				color: $red
+				font-size: 24px
+				display: flex
+				align-items: center
+				justify-content: center
+				transition: color 250ms ease-in-out
+				&:hover
+					color: $white
+			&[data-page='1']
+				a#previous-posts
+					visibility: hidden
+			&[data-last='1']
+				a#next-posts
+					visibility: hidden

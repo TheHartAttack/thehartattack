@@ -1,0 +1,57 @@
+footer
+	background-color: lighten($black, 2%)
+	display: flex
+	align-items: center
+	justify-content: center
+	overflow: hidden
+	div#footer-container
+		flex-shrink: 0
+		position: relative
+		height: 84px
+		width: 1928px
+		div.footer-hex
+			height: 80px
+			width: 80px
+			clip-path: $hex
+			background-color: $black
+			position: absolute
+			transform: translate(-50%, -50%)
+			$left: 726
+			$top: 2 
+			@for $i from 1 through 46 
+				&:nth-of-type(#{$i}) 
+					left: calc(50% - #{$left}px)
+					top: #{$top}px
+					$left: $left - 132
+					@if $i == 12 or $i == 37 or $i == 62 or $i == 87 or $i == 112
+						$left: 792
+						$top: $top + 40
+					@if $i == 25 or $i == 50 or $i == 75 or $i == 100 or $i == 125
+						$left: 726
+						$top: $top + 40
+					@if $i < 13
+						clip-path: polygon(100% 50%, 75% 95%, 25% 95%, 0% 50%)
+					@if $i > 29
+						clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 0% 50%)
+					@if $i == 13
+						background: linear-gradient(90deg, rgba(0,0,0,0) 0%, $black 100%)
+					@if $i == 25
+						background: linear-gradient(270deg, rgba(0,0,0,0) 0%, $black 100%)
+			#footer-copy
+				width: 80px
+				height: 80px
+				display: flex
+				flex-direction: column
+				align-items: center
+				justify-content: center
+				text-align: center
+				user-select: none
+				span
+					color: $red
+					font-size: 10px
+					line-height: 15px
+					font-weight: bold
+					&:first-of-type
+						font-size: 20px
+						line-height: 20px
+						font-weight: normal

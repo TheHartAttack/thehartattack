@@ -1,0 +1,112 @@
+div#contact-overlay
+	position: absolute
+	top: 0
+	left: 0
+	width: 100%
+	min-height: 100%
+	background-color: transparentize($black, 0.0625)
+	z-index: 999
+	//opacity: 0
+	//visibility: hidden
+	display: none
+	transition: all 250ms ease-in-out
+	flex-direction: column
+	align-items: center
+	justify-content: center
+	overflow: hidden
+	button#contact-close
+		position: absolute
+		top: 16px
+		right: 16px
+		height: 48px
+		width: 48px
+		font-size: 32px
+		color: $red
+		cursor: pointer
+		align-items: center
+		justify-content: center
+		border: none
+		background-color: unset
+	div#contact-container
+		margin: 16px 0
+		div#contact-text
+			text-align: center
+			width: 100%
+			max-width: 512px
+			padding: 0 16px 32px 16px
+			box-sizing: border-box
+			h2
+				color: $white
+				margin-bottom: 16px
+			p
+				color: $white
+		form#contact-form
+			display: flex
+			flex-direction: column
+			justify-content: center
+			width: 100%
+			padding: 0 16px
+			max-width: 512px
+			box-sizing: border-box
+			.contact-input
+				margin-bottom: 16px
+				padding: 8px
+				background-color: $white
+				outline: none
+				border: 1px solid $white
+				font-family: 'Open Sans'
+				font-size: 16px
+				line-height: 24px
+				&:focus
+					border: 1px solid $red
+			textarea#contact-message
+				resize: none
+				height: 256px
+			button#contact-submit
+				width: 64px
+				height: 64px
+				align-self: center
+				display: flex
+				align-items: center
+				justify-content: center
+				position: relative
+				transition: all 250ms ease-in-out
+				clip-path: $hex
+				background-color: lighten($black, 25%)
+				border: none
+				span
+					position: absolute
+					text-align: center
+					height: 60px
+					width: 60px
+					color: lighten($black, 25%)
+					font-size: 12px
+					font-weight: bold
+					display: flex
+					align-items: center
+					justify-content: center
+					background-color: $black
+					clip-path: $hex
+					transition: all 250ms ease-in-out
+				&:not([disabled])
+					background-color: $white
+					span
+						background-color: $red
+						color: $white
+					&:hover
+						cursor: pointer
+						span
+							background-color: $black
+	span.contact-response
+		color: $white
+		text-align: center
+		max-width: 512px
+		padding: 16px
+		width: 100%
+	div#contact-container.hidden
+		display: none
+	&.contact-active
+		opacity: 1
+		visibility: visible
+		display: flex
+		overflow: visible

@@ -1,0 +1,192 @@
+header
+	background-color: lighten($black, 2%)
+	z-index: 666
+	position: sticky
+	top: -240px
+	display: flex
+	align-items: center
+	justify-content: center
+	div#header-container
+		flex-shrink: 0
+		position: relative
+		height: 324px
+		width: 100%
+		max-width: 100%
+		div.header-hex
+			height: 80px
+			width: 80px
+			clip-path: $hex
+			background-color: $black
+			position: absolute
+			transform: translate(-50%, -50%)
+			$left: 726
+			$top: 2 
+			@for $i from 1 through 145 
+				&:nth-of-type(#{$i}) 
+					left: calc(50% - #{$left}px)
+					top: #{$top}px
+					$left: $left - 132
+					@if $i == 12 or $i == 37 or $i == 62 or $i == 87 or $i == 112
+						$left: 792
+						$top: $top + 40
+					@if $i == 25 or $i == 50 or $i == 75 or $i == 100 or $i == 125
+						$left: 726
+						$top: $top + 40
+					@if $i > 100
+						clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 0% 50%)
+					@if $i == 25 or $i == 50 or $i == 75 or $i == 100 or $i == 125
+						background: linear-gradient(270deg, rgba(0,0,0,0) 0%, $black 100%)
+					@if $i == 13 or $i == 38 or $i == 63 or $i == 88 or $i == 113
+						background: linear-gradient(90deg, rgba(0,0,0,0) 0%, $black 100%)
+		a.main-nav
+			height: 80px
+			width: 80px
+			clip-path: $hex
+			background-color: $red
+			transition: background-color 250ms ease-in-out
+			display: flex
+			justify-content: center
+			align-items: center
+			position: absolute
+			transform: translate(-50%, -50%)
+			top: 282px
+			$left: 528
+			@for $i from 1 through 9 
+				&:nth-of-type(#{$i}) 
+					left: calc(50% - #{$left}px)
+					$left: $left - 132
+			svg
+				height: 40px
+				width: 40px
+				fill: $black
+				transition: all 250ms ease-in-out
+			&:hover
+				background-color: $black
+				svg
+					fill: $red
+		svg.the-hart-attack
+			height: 180px
+			position: absolute
+			top: 37.5%
+			left: 50%
+			transform: translate(-50%, -50%)
+			fill: $red
+		svg.pentagram, svg.tha
+			height: 120px
+			width: 120px
+			position: absolute
+			transform: translate(-50%, -50%)
+			top: 37.5%
+			fill: $red
+			&:nth-of-type(1)
+				left: calc(50% - 528px)
+			&:nth-of-type(2)
+				left: calc(50% - 330px)
+			&:nth-of-type(4)
+				left: calc(50% + 330px)
+			&:nth-of-type(5)
+				left: calc(50% + 528px)
+			&:nth-of-type(6)
+				top: 282px
+				left: 160px
+				height: 64px
+				width: 64px
+				opacity: 0
+				transition: opacity 250ms ease-in-out
+			&:nth-of-type(7)
+				top: 282px
+				left: 1744px
+				height: 64px
+				width: 64px
+				opacity: 0
+				transition: opacity 250ms ease-in-out
+	&.scrolled
+		div#header-container
+			svg.tha
+				&:nth-of-type(6), &:nth-of-type(7)
+					opacity: 1
+	div#resp-header
+		display: none
+		height: 64px
+		width: 100%
+		align-items: center
+		justify-content: space-between
+		padding: 0 8px
+		background-color: lighten($black, 2%)
+		z-index: 666
+		svg
+			height: 48px
+			fill: $red
+		svg.tha
+			display: none
+		button
+			height: 60px
+			width: 60px
+			background-color: $red
+			clip-path: $hex
+			border: none
+			outline: none
+			cursor: pointer
+			box-sizing: border-box
+			display: flex
+			flex-direction: column
+			align-items: center
+			justify-content: center
+			transition: background-color 250ms ease-in-out
+			.menu-bar
+				height: 4px
+				width: 28px
+				background-color: $black
+				margin-bottom: 4px
+				transition: background-color 250ms ease-in-out
+				&:last-of-type
+					margin-bottom: 0
+			&:hover
+				background-color: $black
+				.menu-bar
+					background-color: $red
+	div#resp-menu
+		display: none
+		height: calc(100vh - 64px)
+		width: 100%
+		background-color: lighten($black, 2%)
+		position: fixed
+		bottom: 100%
+		left: 0
+		z-index: 665
+		align-items: center
+		justify-content: center
+		flex-direction: column
+		padding: 64px
+		box-sizing: border-box
+		transition: bottom 250ms ease-in-out
+		&.open
+			bottom: 0
+		ul
+			display: flex
+			flex-wrap: wrap
+			justify-content: center
+			align-items: center
+			list-style: none
+			li
+				height: 64px
+				width: 64px
+				margin: 16px
+				a
+					height: 100%
+					width: 100%
+					background-color: $red
+					clip-path: $hex
+					display: flex
+					align-items: center
+					justify-content: center
+					transition: background-color 250ms ease-in-out
+					svg
+						fill: $black
+						height: 50%
+						width: 50%
+						transition: fill 250ms ease-in-out
+					&:hover
+						background-color: $black
+						svg
+							fill: $red

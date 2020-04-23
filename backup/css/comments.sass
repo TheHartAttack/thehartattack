@@ -1,0 +1,280 @@
+#single-post-comments
+  width: 100%
+  background-color: $white
+  padding: 32px
+  box-sizing: border-box
+  grid-column: 1/7
+  h3
+    font-size: 16px
+    line-height: 24px
+    margin-bottom: 32px
+    text-align: center
+  #comments-form
+    display: flex
+    flex-direction: column
+    position: relative
+    #comment-input
+      width: 100%
+      resize: none
+      margin-bottom: 8px
+      min-height: 256px
+      padding: 8px
+      font-size: 14px
+      line-height: 21px
+      box-sizing: border-box
+      background-color: #fff
+      outline: lighten($black, 2%) 1px solid
+      &:focus
+        outline: 1px solid $red
+      &:empty::before
+        content: attr(placeholder)
+    #post-comment
+      position: relative
+      height: 48px
+      width: 48px
+      display: flex
+      align-items: center
+      justify-content: center
+      cursor: pointer
+      align-self: flex-end
+      svg
+        height: 100%
+        width: 100%
+        position: absolute
+        top: 0
+        left: 0
+        .post-comment-hex
+          fill: $black
+          transition: all 250ms ease-in-out
+      span
+        font-weight: bold
+        font-size: 12px
+        z-index: 2
+        color: $white
+        transition: all 250ms ease-in-out
+      &:hover
+        svg
+          .post-comment-hex
+            fill: $red
+    .comment-error
+      position: absolute
+      bottom: 0
+      left: 0
+      font-size: 14px
+      line-height: 48px
+  #comments
+    margin-bottom: 16px
+    span.no-comments
+      font-size: 14px
+      line-height: 21px
+      text-align: center
+      display: block
+      margin-top: -16px
+    .comment
+      display: flex
+      margin: 32px 0
+      border-bottom: 1px solid #a01d26
+      padding-bottom: 32px
+      &:last-of-type
+        padding-bottom: 0
+        border: none
+      .comment-user
+        flex: 1
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: flex-start
+        padding-right: 16px
+        h4.username
+          font-size: 14px
+          line-height: 21px
+          margin-bottom: 4px
+        img.user-image
+          width: 128px
+          height: 128px
+          object-fit: cover
+          margin-bottom: 4px
+          clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%)
+        span.post-count
+          font-size: 12px
+          font-weight: bold
+          line-height: 18px
+          margin-bottom: 4px
+        div.user-likes
+          display: flex
+          svg.user-likes-svg
+            width: 16px
+            height: 16px
+            fill: $black
+          span.user-likes-count
+            font-size: 10px
+            font-weight: bold
+            height: 16px
+            width: 16px
+            display: flex
+            align-items: center
+            justify-content: center
+      .comment-body
+        flex: 5
+        display: flex
+        flex-direction: column
+        align-items: flex-start
+        justify-content: flex-start
+        div.comment-time-edit
+          width: 100%
+          display: flex
+          align-items: center
+          justify-content: space-between
+          margin-bottom: 10px
+          span.comment-datetime, span
+            font-size: 10px
+            line-height: 20px
+          div.comment-edit-container
+            display: flex
+            align-items: center
+            justify-content: center
+            div.comment-edit, div.comment-save, div.comment-cancel
+              font-size: 20px
+              line-height: 20px
+              color: $black
+              transition: all 250ms ease-in-out
+              cursor: pointer
+              &:hover
+                color: $red
+            div.comment-save, div.comment-cancel
+              margin: 0 2px
+              display: none
+        div.comment-content
+          font-size: 14px
+          line-height: 21px
+          margin-bottom: 16px
+          width: 100%
+          height: 100%
+          div.comment-content-inner
+            font-size: 14px
+            line-height: 21px
+            white-space: pre-wrap
+          .edit-text-area
+            width: 100%
+            height: 256px
+            resize: none
+            font-size: 14px
+            line-height: 21px
+            margin: -1px
+        div.comment-quote-like
+          width: 100%
+          display: flex
+          margin-top: auto
+          justify-content: space-between
+          align-items: center
+          svg.comment-quote
+            height: 16px
+            width: 16px
+            fill: $black
+            cursor: pointer
+            transition: all 250ms ease-in-out
+            &:hover
+              fill: $red
+          div.comment-like
+            display: flex
+            align-items: center
+            justify-content: center
+            align-self: flex-end
+            margin-left: auto
+            svg.comment-like-svg
+              height: 16px
+              width: 16px
+              stroke-width: 4px
+              stroke: $red
+              fill: none
+            svg.comment-like-svg[data-login="true"]
+              cursor: pointer
+            span.comment-like-count
+              height: 16px
+              width: 16px
+              font-size: 10px
+              display: flex
+              align-items: center
+              justify-content: center
+          div.comment-like[data-status="true"]
+            svg.comment-like-svg
+              fill: $red
+          div.comment-like[data-login="true"]
+            cursor: pointer
+
+span.quote-head
+  font-size: 12px
+  font-weight: bold
+  height: 20px
+blockquote.quoted-comment-block
+  font-style: italic
+  padding: 4px
+  border-left: 2px solid $black
+  background-color: lighten($black, 75%)
+  margin-bottom: 16px
+  span.quoted-author
+    font-size: 10px
+    line-height: 20px
+    display: block
+    margin-bottom: 4px
+  span.quoted-comment
+    font-size: 14px
+    line-height: 21px
+    div.comment-content-inner
+      font-size: 14px
+      line-height: 21px
+div#cancel-quote
+  position: absolute
+  top: 0
+  right: 0
+  font-style: normal
+  height: 16px
+  width: 16px
+  line-height: 16px
+  display: flex
+  align-items: center
+  justify-content: center
+  padding: 4px
+  cursor: pointer
+
+#main-container
+  #col-left
+    div#comments
+      ul.page-numbers
+        width: 100%
+        display: inline-flex
+        justify-content: center
+        align-items: center
+        margin: 0 12px
+        li
+          list-style: none
+          height: 32px
+          width: 32px
+          margin: 16px 4px
+          a, span
+            width: 100%
+            height: 100%
+            display: flex
+            justify-content: center
+            align-items: center
+            position: relative
+            color: $white
+            text-decoration: none
+            font-weight: bold
+            font-size: 12px
+            transition: all 250ms ease-in-out
+            svg.comment-pagination-hex
+              fill: $black
+              position: absolute
+              top: 0
+              left: 0
+              transition: all 250ms ease-in-out
+          span.current
+            span
+              color: $white
+            svg.comment-pagination-hex
+              fill: $red
+          a
+            &:hover
+              svg.comment-pagination-hex
+                fill: $red

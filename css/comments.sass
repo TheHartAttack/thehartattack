@@ -1,0 +1,512 @@
+#single-post-comments
+  width: 100%
+  background-color: $white
+  padding: 0 32px 32px
+  box-sizing: border-box
+  grid-column: 1/7
+  span.no-comments
+    margin-top: 16px
+    width: 100%
+    display: block
+    text-align: center
+    font-size: 14px
+  #comments-login
+    font-size: 12px
+    display: block
+    text-align: center
+    padding-bottom: 20px
+    a
+      font-size: 12px
+  h3
+    font-size: 16px
+    line-height: 24px
+    margin-bottom: 32px
+    text-align: center
+  #comments-form
+    display: flex
+    flex-direction: column
+    position: relative
+    #comment-input
+      width: 100%
+      resize: vertical
+      margin-bottom: 8px
+      min-height: 128px
+      padding: 8px
+      font-size: 14px
+      line-height: 21px
+      box-sizing: border-box
+      background-color: #fff
+      outline: none
+      border: lighten($black, 50%) 1px solid
+      &:focus
+        border: 1px solid $red
+      &:empty::before
+        content: attr(placeholder)
+    #post-comment
+      position: relative
+      height: 48px
+      width: 48px
+      display: flex
+      align-items: center
+      justify-content: center
+      align-self: flex-end
+      border: none
+      background: $black
+      clip-path: $hex
+      font-weight: bold
+      font-size: 12px
+      color: lighten($black, 50%)
+      transition: all 250ms ease-in-out
+      &:not([disabled="disabled"])
+        cursor: pointer
+        color: $white
+        &:hover
+          background-color: $red
+    .comment-error
+      position: absolute
+      bottom: 0
+      left: 0
+      font-size: 12px
+      line-height: 48px
+      font-style: italic
+      font-weight: bold
+      color: $red
+  #comments
+    &.loading
+      height: 128px
+      display: flex
+      align-items: center
+      justify-content: center
+    span.no-comments
+      font-size: 14px
+      line-height: 21px
+      text-align: center
+      display: block
+      margin-top: -16px
+    .comment
+      border-bottom: 1px solid $red
+      padding: 24px 0
+      &:last-of-type
+        padding-bottom: 0
+        border: none
+      .comment-inner
+        display: flex
+        .comment-user
+          display: flex
+          flex-direction: column
+          align-items: center
+          justify-content: flex-start
+          padding-right: 32px
+          a
+            text-decoration: none
+            h4.username
+              font-size: 14px
+              line-height: 21px
+              margin-bottom: 4px
+          .comment-user-image
+            background-color: #a01d26
+            height: 96px
+            width: 96px
+            clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%)
+            display: flex
+            justify-content: center
+            align-items: center
+            margin-bottom: 8px
+            img.user-image
+              width: calc(100% - 2px)
+              height: calc(100% - 2px)
+              object-fit: cover
+              clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%)
+              background-color: $white
+          div.user-comments-likes
+            display: flex
+            div.user-likes
+              display: flex
+              align-items: center
+              justify-content: center
+              svg
+                width: 12px
+                height: 12px
+                fill: $black
+                margin-left: 4px
+              span
+                font-size: 12px
+                font-weight: bold
+                line-height: 12px
+                display: flex
+                align-items: center
+                justify-content: center
+            div.user-comments
+              @extend div.user-likes
+              margin-right: 16px
+        .comment-body
+          flex: 5
+          display: flex
+          flex-direction: column
+          align-items: flex-start
+          justify-content: flex-start
+          div.comment-time-like
+            width: 100%
+            display: flex
+            align-items: center
+            justify-content: space-between
+            margin-bottom: 10px
+            span.comment-datetime, span
+              font-size: 10px
+              line-height: 20px
+            .comment-like
+              display: flex
+              align-items: center
+              justify-content: center
+              align-self: flex-end
+              margin-left: auto
+              background: none
+              border: none
+              svg.like-icon
+                height: 12px
+                width: 12px
+                stroke-width: 4px
+                stroke: $red
+                overflow: visible
+                fill: none
+              span.comment-like-count
+                height: 16px
+                font-size: 10px
+                display: flex
+                align-items: center
+                justify-content: center
+                margin-right: 4px
+                position: relative
+                top: -1px
+              &[data-login="1"]
+                cursor: pointer
+                &:not([data-like="0"])
+                  svg.like-icon
+                    fill: $red
+          div.comment-content
+            font-size: 14px
+            line-height: 21px
+            margin-bottom: 16px
+            width: 100%
+            height: 100%
+            div.comment-content-inner
+              font-size: 14px
+              line-height: 21px
+            .edit-text-area
+              width: 100%
+              min-height: 64px
+              resize: vertical
+              font-size: 14px
+              line-height: 21px
+              box-sizing: border-box
+              padding: 8px
+              border: 1px solid lighten($black, 50%)
+              outline: none
+              &:focus
+                border-color: $red
+          div.comment-quote-like
+            width: 100%
+            display: flex
+            margin-top: auto
+            justify-content: space-between
+            align-items: center
+            .comment-quote
+              text-decoration: none
+              font-size: 28px
+              letter-spacing: -1px
+              font-weight: bold
+              height: 16px
+              width: 16px
+              cursor: pointer
+              position: relative
+              background: none
+              border: none
+              transition: all 250ms ease-in-out
+              svg
+                fill: $black
+                transition: all 250ms ease-in-out
+                position: absolute
+                top: 0
+                left: 0
+              &:hover
+                color: $red
+                svg
+                  fill: $red
+        div.comment-actions
+          display: flex
+          align-items: center
+          justify-content: space-between
+          width: 100%
+          div
+            display: flex
+          a
+            text-decoration: none
+            font-size: 10px
+            font-weight: bold
+            line-height: 15px
+            transition: color 250ms ease-in-out
+            margin-left: 8px
+            &.comment-save-button, &.comment-cancel-button
+              display: none
+            &:first-of-type
+              margin-left: 0
+            &:hover
+              color: $red
+      .comment-reply
+        display: none
+        margin: 16px 0 0 128px
+        form
+          width: 100%
+          display: flex
+          align-items: flex-end
+          textarea
+            width: 100%
+            padding: 8px
+            box-sizing: border-box
+            font-size: 14px
+            line-height: 21px
+            resize: vertical
+            margin-right: 8px
+            min-height: 64px
+          button
+            background-color: $black
+            clip-path: $hex
+            width: 40px
+            height: 40px
+            color: lighten($black, 50%)
+            font-size: 10px
+            font-weight: bold
+            border: none
+            transition: all 250ms ease-in-out
+            &:not([disabled])
+              color: $white
+              cursor: pointer
+              &:hover
+                background-color: $red
+        .comment-error
+          font-size: 12px
+          line-height: 18px
+          margin-top: 16px
+          font-style: italic
+          font-weight: bold
+          color: $red
+      .comment-replies
+        margin-top: 16px
+        display: none
+        .subcomment
+          display: flex
+          padding: 16px 0
+          border-top: 1px solid transparentize($red, 0.75)
+          margin: 0 16px
+          &:last-of-type
+            padding-bottom: 0
+          &[data-edit="1"]
+            div.comment-actions
+              a.comment-save-button, a.comment-cancel-button
+                display: block
+              a.comment-edit-button, a.comment-reply-button
+                display: none
+          &[data-reply="1"]
+            div.comment-actions
+              a.comment-cancel-button
+                display: block
+              a.comment-edit-button, a.comment-reply-button, a.comment-save-button
+                display: none
+          .subcomment-user
+            display: flex
+            flex-direction: column
+            align-items: center
+            justify-content: flex-start
+            padding-right: 32px
+            a
+              text-decoration: none
+              h4.username
+                font-size: 14px
+                line-height: 21px
+                margin-bottom: 4px
+            .comment-user-image
+              background-color: #a01d26
+              height: 80px
+              width: 80px
+              clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%)
+              display: flex
+              justify-content: center
+              align-items: center
+              margin-bottom: 8px
+              img.user-image
+                width: calc(100% - 2px)
+                height: calc(100% - 2px)
+                object-fit: cover
+                clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%)
+                background-color: $white
+            div.user-comments-likes
+              display: flex
+              div.user-likes
+                display: flex
+                align-items: center
+                justify-content: center
+                svg
+                  width: 12px
+                  height: 12px
+                  fill: $black
+                  margin-left: 4px
+                span
+                  font-size: 12px
+                  font-weight: bold
+                  line-height: 12px
+                  display: flex
+                  align-items: center
+                  justify-content: center
+              div.user-comments
+                @extend div.user-likes
+                margin-right: 16px
+          .subcomment-body
+            flex: 5
+            display: flex
+            flex-direction: column
+            align-items: flex-start
+            justify-content: flex-start
+            div.comment-time-like
+              width: 100%
+              display: flex
+              align-items: center
+              justify-content: space-between
+              margin-bottom: 10px
+              span.comment-datetime, span
+                font-size: 10px
+                line-height: 20px
+              .comment-like
+                display: flex
+                align-items: center
+                justify-content: center
+                align-self: flex-end
+                margin-left: auto
+                background: none
+                border: none
+                svg.like-icon
+                  height: 12px
+                  width: 12px
+                  stroke-width: 4px
+                  stroke: $red
+                  overflow: visible
+                  fill: none
+                span.comment-like-count
+                  height: 16px
+                  font-size: 10px
+                  display: flex
+                  align-items: center
+                  justify-content: center
+                  margin-right: 4px
+                  position: relative
+                  top: -1px
+                &[data-login="1"]
+                  cursor: pointer
+                  &:not([data-like="0"])
+                    svg.like-icon
+                      fill: $red
+            div.comment-content
+              font-size: 14px
+              line-height: 21px
+              margin-bottom: 16px
+              width: 100%
+              height: 100%
+              div.comment-content-inner
+                font-size: 14px
+                line-height: 21px
+              .edit-text-area
+                width: 100%
+                min-height: 64px
+                resize: vertical
+                font-size: 14px
+                line-height: 21px
+                box-sizing: border-box
+                padding: 8px
+                border: 1px solid lighten($black, 50%)
+                outline: none
+                &:focus
+                  border-color: $red
+            div.comment-quote-like
+              width: 100%
+              display: flex
+              margin-top: auto
+              justify-content: space-between
+              align-items: center
+              .comment-quote
+                text-decoration: none
+                font-size: 28px
+                letter-spacing: -1px
+                font-weight: bold
+                height: 16px
+                width: 16px
+                cursor: pointer
+                position: relative
+                background: none
+                border: none
+                transition: all 250ms ease-in-out
+                svg
+                  fill: $black
+                  transition: all 250ms ease-in-out
+                  position: absolute
+                  top: 0
+                  left: 0
+                &:hover
+                  color: $red
+                  svg
+                    fill: $red
+          div.comment-actions
+            display: flex
+            align-items: center
+            justify-content: flex-end
+            width: 100%
+            a
+              text-decoration: none
+              font-size: 10px
+              font-weight: bold
+              line-height: 15px
+              transition: color 250ms ease-in-out
+              margin-left: 8px
+              &.comment-save-button, &.comment-cancel-button
+                display: none
+              &:first-of-type
+                margin-left: 0
+              &:hover
+                color: $red     
+      &[data-edit="1"]
+        div.comment-actions
+          a.comment-save-button, a.comment-cancel-button
+            display: block
+          a.comment-edit-button, a.comment-reply-button
+            display: none
+      &[data-reply="1"]
+        div.comment-actions
+          a.comment-cancel-button
+            display: block
+          a.comment-edit-button, a.comment-reply-button, a.comment-save-button
+            display: none
+  #load-more-wrapper
+    display: flex
+    align-items: center
+    justify-content: center
+    margin-top: 24px
+    &.loading
+      #load-more-comments
+        visibility: hidden
+    #load-more-comments
+      display: flex
+      align-items: center
+      justify-content: center
+      height: 48px
+      width: 48px
+      clip-path: $hex
+      font-size: 10px
+      font-weight: bold
+      line-height: 12px
+      color: $white
+      background-color: $black
+      border: none
+      cursor: pointer
+      transition: background-color 250ms ease-in-out
+      br
+        line-height: 0
+      &:hover
+        background-color: $red

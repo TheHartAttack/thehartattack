@@ -1,0 +1,165 @@
+div.user-login-register
+	background-color: $white
+	display: flex
+	flex-direction: column
+	align-items: center
+	padding: 32px
+	&:first-of-type
+			grid-column: 1/4
+	&:last-of-type
+		grid-column: 4/7
+	h3
+		font-size: 20px
+		line-height: 30px
+		margin-bottom: 16px
+	form
+		display: flex
+		flex-direction: column
+		align-items: center
+		&.hidden
+			input, label, button
+				visibility: hidden
+		&.loading
+			width: 100%
+			justify-content: center
+			input, label, button
+				opacity: 0
+				transition: opacity 250ms ease-in-out
+		> input
+			margin-bottom: 8px
+			padding: 8px
+			border: 1px solid transparentize($black, 0.5)
+			width: 240px
+		label
+			font-size: 12px
+			line-height: 18px
+			font-weight: bold
+			cursor: pointer
+			display: flex
+			align-items: center
+			margin-bottom: 8px
+			user-select: none
+			transition: opacity 250ms ease-in-out
+			input
+				cursor: pointer
+		button
+			height: 64px
+			width: 64px
+			background-color: $black
+			clip-path: $hex
+			border: none
+			color: transparentize($white, 0.5)
+			font-weight: bold
+			font-size: 12px
+			transition: all 250ms ease-in-out
+			&:not([disabled])
+				cursor: pointer
+				color: $white
+				&:hover
+					background-color: $red
+		span
+			position: absolute
+			font-size: 14px
+			font-weight: bold
+	div#reset-resend
+		font-size: 12px
+		line-height: 18px
+		margin-top: 24px
+		font-weight: bold
+		a
+			font-size: 12px
+			line-height: 18px
+			font-weight: bold
+			text-decoration: none
+			transition: color 250ms ease-in-out
+			&:first-of-type
+				margin-top: 16px
+				margin-bottom: 4px
+			&:hover
+				color: $red
+
+div#reset-password-overlay, div#resend-activation-overlay
+	display: none
+	flex-direction: column
+	align-items: center
+	justify-content: center
+	height: 100vh
+	width: 100%
+	position: absolute
+	top: 0
+	left: 0
+	z-index: 666
+	background-color: transparentize($black, 0.03125)
+	button.overlay-close
+		position: absolute
+		top: 16px
+		right: 16px
+		height: 48px
+		width: 48px
+		border: 0
+		background-color: unset
+		font-size: 32px
+		color: $red
+		cursor: pointer
+	> div
+		height: 100%
+		width: 100%
+		display: flex
+		align-items: center
+		justify-content: center
+		form
+			display: flex
+			flex-direction: column
+			align-items: center
+			justify-content: center
+			position: absolute
+			top: 50%
+			left: 50%
+			transform: translate(-50%, -50%)
+			opacity: 1
+			transition: opacity 250ms ease-in-out
+			&.hidden
+				opacity: 0
+			h4
+				color: $white
+				margin-bottom: 16px
+			input
+				margin-bottom: 16px
+				padding: 8px
+				border: none
+				min-width: 240px
+			button
+				height: 64px
+				width: 64px
+				background-color: lighten($black, 25%)
+				clip-path: $hex
+				display: flex
+				align-items: center
+				justify-content: center
+				border: none
+				transition: all 250ms ease-in-out
+				&:after
+					content: "Submit"
+					display: flex
+					align-items: center
+					justify-content: center
+					height: 60px
+					width: 60px
+					background-color: $black
+					clip-path: $hex
+					color: lighten($black, 25%)
+					font-size: 12px
+					font-weight: bold
+					transition: all 250ms ease-in-out
+				&:not([disabled])
+					cursor: pointer
+					background-color: $white
+					&:after
+						color: $white
+					&:hover
+						&:after
+							background-color: $red
+		span.response
+			color: $white
+			font-size: 14px
+			line-height: 21px

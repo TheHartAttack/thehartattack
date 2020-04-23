@@ -1,0 +1,181 @@
+.single-post-container
+  background: $white
+  padding: 32px
+  width: 100%
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: flex-start
+  position: relative
+  box-sizing: border-box
+  grid-column: 1/7
+  .single-post-title-section
+    width: 100%
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    background-size: cover
+    background-position: center
+    background-repeat: no-repeat
+    margin-bottom: 24px
+    .single-post-title-section-inner
+      width: 100%
+      height: 100%
+      background-color: transparentize($black, 0.5)
+      display: flex
+      flex-direction: column
+      align-items: center
+      justify-content: center
+      a.post-comments-link
+        position: absolute
+        top: 16px
+        right: 16px
+        &:hover
+          svg.single-post-comments
+            .post-comments-hex
+              fill: $red
+          div.post-comments-count
+            color: $red
+      svg.single-post-comments
+        z-index: 3
+        width: 64px
+        .post-comments-hex
+          fill: $black
+          transition: all 250ms ease-in-out
+        .post-comments-icon
+          fill: $white
+          transition: all 250ms ease-in-out
+      div.post-comments-count
+        height: 64px
+        width: 64px
+        color: $black
+        position: absolute
+        top: -4px
+        left: 0px
+        z-index: 4
+        display: flex
+        align-items: center
+        justify-content: center
+        line-height: 48px
+        font-size: 12px
+        font-weight: bold
+        transition: all 250ms ease-in-out
+      a.post-cat-link
+        width: 64px
+        height: 64px
+        display: inline-block
+        position: absolute
+        top: 16px
+        left: 16px
+        svg.post-cat
+          .post-cat-hex
+            fill: $black
+            transition: all 250ms ease-in-out
+          .post-cat-icon
+            fill: $white
+            transition: all 250ms ease-in-out
+        &:hover
+          svg.post-cat
+            .post-cat-hex
+              fill: $red
+  h2.single-post-title
+    color: $white
+    text-align: center
+  span.single-post-date
+    font-size: 12px
+    line-height: 18px
+    margin-bottom: 8px
+    font-style: italic
+    color: $white
+  h3.single-post-subtitle
+    font-size: 16px
+    line-height: 24px
+    margin: 0px 8px 24px 8px
+    color: $white
+    font-weight: normal
+    text-align: center
+  p
+    margin-bottom: 16px
+    &:last-of-type
+      margin-bottom: 24px
+  div.single-post-links-likes
+    width: 100%
+    display: flex
+    justify-content: space-between
+    div.single-post-share-links
+      margin-left: -4px
+      display: flex
+      transition: all 250ms ease-in-out
+      svg.share-icon
+        height: 32px
+        width: 32px
+        .share-icon-icon
+          fill: $black
+      a.share-icon-facebook
+        height: 32px
+        width: 32px
+        transition: all 250ms ease-in-out
+        margin-right: 4px
+        .share-icon-facebook-hex
+          fill: $black
+          transition: all 250ms ease-in-out
+        .share-icon-facebook-icon
+          fill: $white
+          transition: all 250ms ease-in-out
+        &:hover
+          .share-icon-facebook-hex
+            fill: $red
+      a.share-icon-facebook.share-active
+        left: 8px
+        top: 24px
+      a.share-icon-twitter
+        height: 32px
+        width: 32px
+        transition: all 250ms ease-in-out
+        .share-icon-twitter-hex
+          fill: $black
+          transition: all 250ms ease-in-out
+        .share-icon-twitter-icon
+          fill: $white
+          transition: all 250ms ease-in-out
+        &:hover
+          .share-icon-twitter-hex
+            fill: $red
+      a.share-icon-twitter.share-active
+        left: -8px
+        top: 24px
+    div.single-post-share-links.active
+      margin-bottom: 16px
+    div.single-post-likes
+      height: 32px
+      width: 32px
+      position: relative
+      svg.single-post-likes-svg
+        stroke: $red
+        stroke-width: 8px
+        fill: none
+        transition: all 250ms ease-in-out
+      span.single-post-likes-count
+        position: absolute
+        height: 28px
+        width: 32px
+        text-align: center
+        left: 0
+        top: 0
+        line-height: 32px
+        color: $red
+        font-weight: bold
+        font-size: 10px
+        user-select: none
+        display: flex
+        align-items: center
+        justify-content: center
+        transition: all 250ms ease-in-out
+    div.single-post-likes[data-status="true"]
+      svg.single-post-likes-svg
+        fill: $red
+      span.single-post-likes-count
+        color: $white
+    div.single-post-likes[data-user-login="true"]
+      cursor: pointer

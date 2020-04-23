@@ -1,0 +1,25 @@
+div#archive-posts
+  display: grid
+  grid-template-columns: repeat(6, 1fr)
+  grid-gap: 16px
+  align-content: start
+div.archive-title
+  grid-column: 1/7
+  height: 96px
+  display: flex
+  align-items: center
+  background-color: $black
+  margin-bottom: 16px
+  div.archive-title-icon
+    width: 96px
+    height: 96px
+    display: inline-block
+    svg
+      fill: $red
+      height: 48px
+      padding: 24px
+  div.archive-title-text
+    flex: 1
+    h1
+      color: $red
+      text-align: center

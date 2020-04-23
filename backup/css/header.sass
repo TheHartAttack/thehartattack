@@ -1,0 +1,58 @@
+header
+	position: sticky
+	top: 0
+	display: flex
+	justify-content: center
+	z-index: 99
+	overflow: hidden
+	svg#header-svg
+		background-color: lighten($black, 2%)
+		min-width: $breakLarge
+		width: 100%
+		a#header-hex-menu
+			visibility: hidden
+		#the-hart-attack-logo
+			transform: scale(0.9)
+		.header-tha-icon-scrolled
+			fill: $red
+			display: none
+		.header-hex-button-icon
+			fill: $black
+		.header-hex-button
+			fill: $red
+		.header-hex-button-bg
+			fill: $black
+		.header-hex
+			fill: $black
+		.header-logo
+			fill: $red
+		.header-logo-stroke
+			fill: #20232A
+		.header-tha-icon
+			fill: $red
+		a
+			cursor: pointer
+			.header-hex-button, .header-hex-button-icon
+				transition: stroke 250ms ease-in-out, fill 250ms ease-in-out
+			&:hover
+				.header-hex-button
+					fill: $black
+					stroke: $black
+				.header-hex-button-icon
+					fill: $red
+		#header-hex-search, #header-hex-contact, #header-hex-user
+			cursor: pointer
+			.header-hex-button, .header-hex-button-icon
+				transition: stroke 250ms ease-in-out, fill 250ms ease-in-out
+			&:hover
+				.header-hex-button
+					fill: $black
+					stroke: $black
+				.header-hex-button-icon
+					fill: $red
+		.alt-logo
+			fill: $red
+			stroke: $black
+
+.header-hex-animate
+	animation: spin 10000ms linear

@@ -1,0 +1,119 @@
+div#contact-overlay
+	position: fixed
+	top: 0
+	left: 0
+	height: 100%
+	width: 100%
+	background-color: transparentize($black, 0.0625)
+	z-index: 999
+	opacity: 0
+	visibility: hidden
+	transition: all 250ms ease-in-out
+	display: flex
+	flex-direction: column
+	align-items: center
+	justify-content: center
+	overflow-y: auto
+	div#contact-close
+		position: absolute
+		top: 0px
+		right: 0px
+		height: 60px
+		width: 60px
+		font-size: 32px
+		color: $red
+		cursor: pointer
+		display: flex
+		align-items: center
+		justify-content: center
+	div#contact-container
+		margin: 16px 0
+		div#contact-text
+			text-align: center
+			width: 100%
+			max-width: 512px
+			padding: 0 16px 32px 16px
+			box-sizing: border-box
+			h2
+				color: $white
+				margin-bottom: 16px
+			p
+				color: $white
+		form#contact-form
+			display: flex
+			flex-direction: column
+			justify-content: center
+			width: 100%
+			padding: 0 16px
+			max-width: 512px
+			box-sizing: border-box
+			.contact-input
+				margin-bottom: 16px
+				padding: 8px
+				background-color: $white
+				outline: none
+				border: 1px solid $white
+				font-family: 'Open Sans'
+				font-size: 16px
+				line-height: 24px
+				&:focus
+					border: 1px solid $red
+			textarea#contact-message
+				resize: none
+				height: 256px
+			div#contact-submit
+				width: 64px
+				height: 64px
+				align-self: center
+				display: flex
+				align-items: center
+				justify-content: center
+				position: relative
+				cursor: pointer
+				transition: all 250ms ease-in-out
+				svg
+					height: 64px
+					width: 64px
+					fill: $red
+					transition: all 250ms ease-in-out
+				span
+					position: absolute
+					top: 0
+					left: 0
+					text-align: center
+					height: 100%
+					width: 100%
+					color: $white
+					font-size: 12px
+					font-weight: bold
+					text-transform: capitalize
+					display: flex
+					align-items: center
+					justify-content: center
+					transition: all 250ms ease-in-out
+				&:hover
+					svg
+						fill: $black
+					span
+						color: $red
+			div#contact-submit.submit-disabled
+				visibility: hidden
+	span.contact-success, span.contact-failure
+		color: $white
+		text-align: center
+		max-width: 512px
+		padding: 16px
+		width: 100%
+		display: none
+	span.contact-success.active, span.contact-failure.active
+		display: block
+	span.contact-error
+		color: $white
+		text-align: center
+		display: block
+		margin-top: 16px
+	div#contact-container.hidden
+		display: none
+div.contact-active
+	opacity: 1 !important
+	visibility: visible !important

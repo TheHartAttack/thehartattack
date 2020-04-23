@@ -1,0 +1,145 @@
+#col-right
+  flex: 1
+  display: flex
+  flex-direction: column
+  position: relative
+  align-self: stretch
+  padding-bottom: 260px
+  & > div
+    background-color: $white
+    padding: 32px
+    margin: 0 16px 16px 16px
+    &:last-of-type
+      margin: 0px 16px
+  div#profile
+    div#profile-image-text
+      display: flex
+      flex-direction: column
+      div.glitch-container
+        position: relative
+        margin: 0
+        background-color: #fff
+        width: calc(100% - 0px)
+        overflow: hidden
+        clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%)
+        margin-top: -5%
+        margin-bottom: calc(24px - 5%)
+        div.glitch-img
+          position: absolute
+          height: 100%
+          width: 100%
+          top: 0
+          left: 0
+          background-position: center
+          opacity: 1
+          background-size: cover
+      img, p
+        width: 100%
+      p
+        margin: auto auto 24px auto
+        text-align: center
+        font-size: 14px
+        line-height: 21px
+      img
+        clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%)
+        margin-top: -5%
+        margin-bottom: calc(24px - 5%)
+    svg#social-links
+      a
+        .social-link-hex
+          fill: $black
+          transition: fill 250ms ease-in-out, stroke 250ms ease-in-out
+          transform: scale(0.9)
+        .social-link-icon
+          fill: $white
+          transition: fill 250ms ease-in-out, stroke 250ms ease-in-out
+          transform: scale(0.9)
+        &:hover
+          .social-link-hex
+            fill: $red
+  a#work-with-me
+    background-color: $black
+    display: inline-block
+    text-decoration: none
+    text-align: center
+    h2
+      font-size: 20px
+      color: $white
+      transition: all 250ms ease-in-out
+      span
+        font-family: 'Neoneon'
+        display: block
+        animation: neon 10s infinite ease
+        font-size: 48px
+        line-height: 48px
+        font-weight: 100
+    p
+      color: $white
+      transition: all 250ms ease-in-out
+  div#instafeed
+    padding: 8px
+    a
+      width: calc(50% - 16px)
+      margin: 8px
+      display: inline-flex
+      line-height: 0
+      overflow: hidden
+      opacity: 0.875
+      transition: all 250ms ease-in-out
+      img
+        width: 100%
+      &:hover
+        opacity: 1
+  #crystal-shelf
+    position: absolute
+    bottom: 0
+    left: 20px
+    margin-bottom: -16px
+    width: 70%
+    #tri-shelf
+      fill: $trueblack
+    #crystal-1
+      fill: $purple
+    #crystal-2
+      fill: $pink
+    #crystal-3
+      fill: $blue
+  #incense-burner
+    position: absolute
+    bottom: 0
+    right: 0
+    margin-bottom: -16px
+    width: 15%
+    .smoke1
+      animation: smoke 10000ms forwards ease-in-out infinite
+      transform-origin: 85% 0%
+    .smoke4
+      animation: smoke2 10000ms forwards ease-in-out infinite
+      transform-origin: 85% 0%
+  //#halloween-pumpkin
+    position: absolute
+    bottom: -16px
+    left: 0
+    width: 50%
+  #halloween-tombstone
+    position: absolute
+    bottom: -44px
+    left: 25%
+    transform: translatex(-50px) rotate(5deg)
+    width: 50%
+    fill: $black
+  #halloween-moon
+    position: absolute
+    bottom: 96px
+    left: 50%
+    width: 50%
+    transform: translatex(-50%)
+    z-index: -2
+    fill: $moon
+  #halloween-tree
+    position: absolute
+    bottom: -16px
+    right: 0
+    width: 80%
+    fill: $brown
+    z-index: -1
